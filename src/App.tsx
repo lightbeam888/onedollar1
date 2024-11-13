@@ -84,7 +84,7 @@ const App: React.FC = () => {
     return () => clearInterval(interval);
   }, []);
   return (
-    <div className="flex flex-col items-center  gap-6 p-6 font-b612 bg-gray-300 dark:bg-slate-900 h-screen">
+    <div className="flex flex-col items-center  gap-6 p-6 font-b612 bg-white dark:bg-slate-900 h-screen">
       <nav className="bg-inherit  p-4 z-30 flex flex-row gap-4 items-center">
         <div className="container  flex justify-between items-center rounded-full border-black border-2 px-6 py-2">
           <ul className="flex space-x-7">
