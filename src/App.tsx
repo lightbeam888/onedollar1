@@ -26,8 +26,6 @@ const App: React.FC = () => {
     }
   }, [darkMode]);
 
-  const toggleDarkMode = () => setDarkMode(!darkMode);
-
   const copyCA = () => {
     const ca = "4UTEFQjNMvfQF5NT8mVfXdMAKoL7hS7i9U4mMVAzpump";
     navigator.clipboard.writeText(ca).then(
@@ -49,7 +47,8 @@ const App: React.FC = () => {
       const newPrice = parseFloat(data.currentPrice);
       const priceChange = data.priceChange;
 
-      if (priceChange === "neutral") setPriceColor("text-black");
+      if (priceChange === "neutral")
+        setPriceColor("text-black dark:text-gray-300");
       else if (priceChange === "rising") setPriceColor("text-green-500");
       else setPriceColor("text-green-500");
 
@@ -85,17 +84,17 @@ const App: React.FC = () => {
     return () => clearInterval(interval);
   }, []);
   return (
-    <div className="flex flex-col items-center justify-center gap-6 p-6 font-b612">
-      <nav className="bg-white p-4 z-30 flex flex-row gap-4 items-center">
+    <div className="flex flex-col items-center  gap-6 p-6 font-b612 bg-gray-300 dark:bg-slate-900 h-screen">
+      <nav className="bg-inherit  p-4 z-30 flex flex-row gap-4 items-center">
         <div className="container  flex justify-between items-center rounded-full border-black border-2 px-6 py-2">
           <ul className="flex space-x-7">
-            <div className=" text-black text-lg truncate">
+            <div className=" text-black dark:text-gray-300 text-lg truncate">
               $1 stable memecoin
             </div>
 
             <li>
               <a
-                className="text-black underline underline-offset-1 hover:text-gray-400"
+                className="text-black dark:text-gray-300 underline underline-offset-1 hover:text-gray-400"
                 href="https://x.com/1stablememecoin"
               >
                 x
@@ -103,7 +102,7 @@ const App: React.FC = () => {
             </li>
             <li>
               <a
-                className="text-black underline underline-offset-1 hover:text-gray-400"
+                className="text-black dark:text-gray-300 underline underline-offset-1 hover:text-gray-400"
                 href="https://t.me/onedollarportal"
               >
                 telegram
@@ -111,7 +110,7 @@ const App: React.FC = () => {
             </li>
             <li>
               <a
-                className="text-black underline underline-offset-1 hover:text-gray-400"
+                className="text-black dark:text-gray-300 underline underline-offset-1 hover:text-gray-400"
                 href="https://x.com/1stablememecoin"
               >
                 blog
@@ -120,7 +119,7 @@ const App: React.FC = () => {
 
             <li>
               <a
-                className="text-black underline underline-offset-1 hover:text-gray-400"
+                className="text-black dark:text-gray-300 underline underline-offset-1 hover:text-gray-400"
                 href="#"
               >
                 roadmap
@@ -130,16 +129,16 @@ const App: React.FC = () => {
             <div className="relative">
               <button
                 onClick={() => setArticleIsOpen(!articleIsOpen)}
-                className="flex flex-row items-center  text-black hover:text-gray-400 focus:outline-none"
+                className="flex flex-row items-center  text-black dark:text-gray-300 hover:text-gray-400 focus:outline-none"
               >
                 articles
                 <RxTriangleDown />
               </button>
               {articleIsOpen && (
-                <ul className="absolute -right-[50%] bg-white bg-10 mt-2 rounded-md shadow-lg">
+                <ul className="absolute -right-[50%] bg-gray-300 bg-10 mt-2 rounded-md shadow-lg">
                   <li>
                     <a
-                      className="block p-2 text-black hover:bg-gray-600"
+                      className="block p-2 text-black dark:text-gray-300 hover:bg-gray-600"
                       href="#"
                     >
                       Option 1
@@ -147,7 +146,7 @@ const App: React.FC = () => {
                   </li>
                   <li>
                     <a
-                      className="block p-2 text-black hover:bg-gray-600"
+                      className="block p-2 text-black dark:text-gray-300 hover:bg-gray-600"
                       href="#"
                     >
                       Option 2
@@ -155,7 +154,7 @@ const App: React.FC = () => {
                   </li>
                   <li>
                     <a
-                      className="block p-2 text-black hover:bg-gray-600"
+                      className="block p-2 text-black dark:text-gray-300 hover:bg-gray-600"
                       href="#"
                     >
                       Option 3
@@ -168,16 +167,16 @@ const App: React.FC = () => {
             <div className="relative">
               <button
                 onClick={() => setChartIsOpen(!chartIsOpen)}
-                className="flex flex-row items-center  text-black hover:text-gray-400 focus:outline-none"
+                className="flex flex-row items-center  text-black dark:text-gray-300 hover:text-gray-400 focus:outline-none"
               >
                 charts
                 <RxTriangleDown />
               </button>
               {chartIsOpen && (
-                <ul className="absolute -right-[50%] bg-white z-10 mt-2 rounded-md shadow-lg">
+                <ul className="absolute -right-[50%] bg-gray-300 z-10 mt-2 rounded-md shadow-lg">
                   <li>
                     <a
-                      className="block p-2 text-black hover:bg-gray-600"
+                      className="block p-2 text-black dark:text-gray-300 hover:bg-gray-600"
                       href="#"
                     >
                       Option 1
@@ -185,7 +184,7 @@ const App: React.FC = () => {
                   </li>
                   <li>
                     <a
-                      className="block p-2 text-black hover:bg-gray-600"
+                      className="block p-2 text-black dark:text-gray-300 hover:bg-gray-600"
                       href="#"
                     >
                       Option 2
@@ -193,7 +192,7 @@ const App: React.FC = () => {
                   </li>
                   <li>
                     <a
-                      className="block p-2 text-black hover:bg-gray-600"
+                      className="block p-2 text-black dark:text-gray-300 hover:bg-gray-600"
                       href="#"
                     >
                       Option 3
@@ -205,16 +204,16 @@ const App: React.FC = () => {
             <div className="relative">
               <button
                 onClick={() => setCnIsOpen(!cnIsOpen)}
-                className="flex flex-row items-center  text-black hover:text-gray-400 focus:outline-none"
+                className="flex flex-row items-center  text-black dark:text-gray-300 hover:text-gray-400 focus:outline-none"
               >
                 CN
                 <RxTriangleDown />
               </button>
               {cnIsOpen && (
-                <ul className="absolute -right-[50%] bg-white z-10 mt-2 rounded-md shadow-lg">
+                <ul className="absolute -right-[50%] bg-gray-300 z-10 mt-2 rounded-md shadow-lg">
                   <li>
                     <a
-                      className="block p-2 text-black hover:bg-gray-600"
+                      className="block p-2 text-black dark:text-gray-300 hover:bg-gray-600"
                       href="#"
                     >
                       Option 1
@@ -222,7 +221,7 @@ const App: React.FC = () => {
                   </li>
                   <li>
                     <a
-                      className="block p-2 text-black hover:bg-gray-600"
+                      className="block p-2 text-black dark:text-gray-300 hover:bg-gray-600"
                       href="#"
                     >
                       Option 2
@@ -230,7 +229,7 @@ const App: React.FC = () => {
                   </li>
                   <li>
                     <a
-                      className="block p-2 text-black hover:bg-gray-600"
+                      className="block p-2 text-black dark:text-gray-300 hover:bg-gray-600"
                       href="#"
                     >
                       Option 3
@@ -243,11 +242,17 @@ const App: React.FC = () => {
         </div>
 
         <div className="flex flex-row">
-          <div className="w-[20px] h-[30px] bg-black hover:cursor-pointer "></div>
-          <div className="w-[20px] h-[30px] bg-white border-black border-2 hover:cursor-pointer "></div>
+          <div
+            className="w-[20px] h-[30px] bg-black hover:cursor-pointer "
+            onClick={() => setDarkMode(true)}
+          ></div>
+          <div
+            className="w-[20px] h-[30px] bg-gray-300 border-black border-2 hover:cursor-pointer "
+            onClick={() => setDarkMode(false)}
+          ></div>
         </div>
       </nav>
-      <div className=" flex flex-col items-center justify-between gap-6">
+      <div className=" flex flex-col items-center justify-between gap-6 dark:text-gray-300">
         <div className="flex flex-col items-center justify-center">
           <div className="flex-wrap items-center justify-center">
             Decentralized stable memecoin. However, it is currently de - peged
@@ -255,10 +260,10 @@ const App: React.FC = () => {
           <div>It's simple, we just need to re-peg it back to $1.00</div>
         </div>
         <div className="flex items-center">
-          {priceColor === "text-black" ? (
+          {priceColor === "text-black dark:text-gray-300" ? (
             <div
               id="price"
-              className={`text-[1rem]  sm:text-[2rem] md:text-[3rem] dark:text-white font-bold ${priceColor}`}
+              className={`text-[1rem]  sm:text-[2rem] md:text-[3rem] dark:text-gray-300 font-bold ${priceColor}`}
             >
               {price} / $1
             </div>
@@ -297,15 +302,15 @@ const App: React.FC = () => {
           4UTEFQjNMvfQF5NT8mVfXdMAKoL7hS7i9U4mMVAzpump
         </div>
 
-        <div className="flex space-x-4 mt-5">
-          <div className="text-[0.8rem] sm:text-[1rem] md:text-[1.2rem]">
+        <div className="flex space-x-8 mt-5">
+          <div className="text-[0.8rem] sm:text-[1rem] md:text-[1.1rem]">
             holders [{holders}]
           </div>
 
-          {priceColor === "text-black" ? (
+          {priceColor === "text-black dark:text-gray-300" ? (
             <div
               id="price"
-              className={`text-[#000000] text-[0.8rem] sm:text-[1rem] md:text-[1.2rem] font-bold ${priceColor}`}
+              className={`text-[#000000] dark:text-gray-300 text-[0.8rem] sm:text-[1rem] md:text-[1.2rem] font-bold ${priceColor}`}
             >
               re-peg status [
               <span className="text-green-500">
@@ -317,9 +322,9 @@ const App: React.FC = () => {
             <div className="flex-wrap flex flex-row items-center justify-center">
               <div
                 id="price"
-                className={`truncate text-[#000000] text-[0.8rem] sm:text-[1rem] md:text-[1.2rem] `}
+                className={`truncate text-[#000000] dark:text-gray-300 text-[0.8rem] sm:text-[1rem] md:text-[1.2rem] `}
               >
-                re-peg status
+                re-peg status&nbsp;
               </div>
               <div className="flex flex-row items-center justify-center">
                 [
@@ -347,7 +352,7 @@ const App: React.FC = () => {
           )}
 
           <div className="text-[0.8rem] sm:text-[1rem] md:text-[1.2rem]">
-            marketCap: [{marketCap}]
+            marketCap [{marketCap}]
           </div>
 
           <div className="text-[0.8rem] sm:text-[1rem] md:text-[1.2rem]">
@@ -355,7 +360,7 @@ const App: React.FC = () => {
           </div>
         </div>
 
-        <div className="w-full">
+        <div className="w-full mt-10">
           <Accordion
             title="$1?"
             content="Lorem ipsum dolcvve magna aliqua. Ut"
