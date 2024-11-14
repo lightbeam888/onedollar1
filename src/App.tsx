@@ -144,10 +144,10 @@ const App: React.FC = () => {
                 <RxTriangleDown />
               </div>
               {active === 1 && (
-                <ul className="absolute -right-[50%] bg-gray-300 bg-10 mt-2 rounded-md shadow-lg">
+                <ul className="absolute -right-[50%] bg-gray-300  bg-10 mt-2 rounded-md shadow-lg">
                   <li>
                     <a
-                      className="block p-2 text-black dark:text-gray-300 hover:bg-gray-600"
+                      className="block p-2 dark:bg-black text-black dark:border dark:border-gray-400 dark:text-gray-300 hover:bg-gray-600"
                       href="https://x.com/1stablememecoin/status/1855347853155332335"
                     >
                       article 1
@@ -155,7 +155,7 @@ const App: React.FC = () => {
                   </li>
                   <li>
                     <a
-                      className="block p-2 text-black dark:text-gray-300 hover:bg-gray-600"
+                      className="block p-2 dark:bg-black text-black dark:border dark:border-gray-400 dark:text-gray-300 hover:bg-gray-600"
                       href="https://x.com/1stablememecoin/status/1855359544618291489"
                     >
                       article 2
@@ -175,7 +175,7 @@ const App: React.FC = () => {
                 <RxTriangleDown />
               </button>
               {active == 2 && (
-                <ul className="absolute -right-[50%] bg-gray-300 z-10 mt-2 rounded-md shadow-lg">
+                <ul className="absolute -right-[50%] bg-gray-300 dark:bg-black dark:border dark:border-gray-400 z-10 mt-2 rounded-md shadow-lg">
                   <li>
                     <a
                       className="block p-2 text-black dark:text-gray-300 hover:bg-gray-600"
@@ -213,7 +213,7 @@ const App: React.FC = () => {
                 <RxTriangleDown />
               </button>
               {active === 3 && (
-                <ul className="absolute -right-[50%] bg-gray-300 z-10 mt-2 rounded-md shadow-lg w-30">
+                <ul className="absolute -right-[50%] bg-gray-300 dark:bg-black z-10 mt-2 rounded-md shadow-lg w-30">
                   <li>
                     <a
                       className="block p-2 text-black dark:text-gray-300 hover:bg-gray-600 truncate"
