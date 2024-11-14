@@ -1,7 +1,5 @@
 "use-strict";
 
-import { Triangle } from "lucide-react";
-import { ChevronDown } from "lucide-react";
 import Accordion from "./components/accordion";
 import useOutsideDetector from "./hooks/useOutsideDetector";
 import { NavLink } from "./components/NavLink";
