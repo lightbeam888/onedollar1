@@ -92,7 +92,7 @@ const App: React.FC = () => {
     return () => clearInterval(interval);
   }, []);
   return (
-    <div className="flex flex-col items-center  gap-6 p-6 font-b612 bg-white dark:bg-black h-screen">
+    <div className="flex flex-col items-center  gap-6 p-6 font-b612 bg-white dark:bg-black h-full">
       <nav className="bg-inherit  p-4 z-30 flex flex-row gap-4 items-center">
         <div className="container  flex justify-between items-center rounded-full border-black dark:border-white border-2 px-6 py-2">
           <ul className="flex space-x-7">
@@ -148,25 +148,17 @@ const App: React.FC = () => {
                   <li>
                     <a
                       className="block p-2 text-black dark:text-gray-300 hover:bg-gray-600"
-                      href="#"
+                      href="https://x.com/1stablememecoin/status/1855347853155332335"
                     >
-                      Option 1
+                      article 1
                     </a>
                   </li>
                   <li>
                     <a
                       className="block p-2 text-black dark:text-gray-300 hover:bg-gray-600"
-                      href="#"
+                      href="https://x.com/1stablememecoin/status/1855359544618291489"
                     >
-                      Option 2
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      className="block p-2 text-black dark:text-gray-300 hover:bg-gray-600"
-                      href="#"
-                    >
-                      Option 3
+                      article 2
                     </a>
                   </li>
                 </ul>
@@ -187,25 +179,25 @@ const App: React.FC = () => {
                   <li>
                     <a
                       className="block p-2 text-black dark:text-gray-300 hover:bg-gray-600"
-                      href="#"
+                      href="https://dexscreener.com/solana/guhisjwhmjbd6azumkknb8yxqj9qytfon4skum2hnepu"
                     >
-                      Option 1
+                      dexsreener
                     </a>
                   </li>
                   <li>
                     <a
                       className="block p-2 text-black dark:text-gray-300 hover:bg-gray-600"
-                      href="#"
+                      href="https://www.dextools.io/app/en/solana/pair-explorer/GUhiSjWhMjbd6aZuMkKnb8Yxqj9qytFoN4sKUM2hNePU?t=1729109118417"
                     >
-                      Option 2
+                      dextools
                     </a>
                   </li>
                   <li>
                     <a
                       className="block p-2 text-black dark:text-gray-300 hover:bg-gray-600"
-                      href="#"
+                      href="https://www.coingecko.com/en/coins/1-dollar-sol-coin"
                     >
-                      Option 3
+                      Coingecko
                     </a>
                   </li>
                 </ul>
@@ -225,25 +217,17 @@ const App: React.FC = () => {
                   <li>
                     <a
                       className="block p-2 text-black dark:text-gray-300 hover:bg-gray-600 truncate"
-                      href="#"
+                      href="https://x.com/1stablecoinCN"
                     >
-                      Option 1
+                      文章 1
                     </a>
                   </li>
                   <li>
                     <a
                       className="block p-2 text-black dark:text-gray-300 hover:bg-gray-600"
-                      href="#"
+                      href="https://t.me/chinese1stablecoin"
                     >
-                      Option 2
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      className="block p-2 text-black dark:text-gray-300 hover:bg-gray-600"
-                      href="#"
-                    >
-                      Option 3
+                      文章 2
                     </a>
                   </li>
                 </ul>
@@ -258,7 +242,7 @@ const App: React.FC = () => {
             onClick={() => setDarkMode(true)}
           ></div>
           <div
-            className="w-[10px] h-[18px] bg-gray-300 "
+            className="w-[10px] h-[18px] bg-white "
             onClick={() => setDarkMode(false)}
           ></div>
         </div>
@@ -302,7 +286,7 @@ const App: React.FC = () => {
         </div>
 
         <div>
-          <div className="font-bold roboto-bold text-xl bg-box dark:bg-[#262626] dark:border-0 p-[10px_20px] rounded-sm border border-gray-300">
+          <div className="font-bold text-xl bg-box dark:bg-[#262626] dark:border-0 p-[10px_20px] rounded-sm border border-gray-300">
             4UTEFQjNMvfQF5NT8mVfXdMAKoL7hS7i9U4mMVAzpump
           </div>
 
@@ -328,7 +312,7 @@ const App: React.FC = () => {
               {((marketCap / 1000000000) * 100).toFixed(2)}%]
             </div>
           ) : priceColor === "text-green-500" ? (
-            <div className="flex flex-row items-center justify-center py-2 px-3 border border-gray-300  font-mono rounded-sm truncate text-green-500 bg-green-200 dark:bg-[#003300ba] dark:border-0  text-[0.8rem] sm:text-[1rem]  font-normal md:text-[1.3rem]">
+            <div className="flex flex-row items-center justify-center py-2 px-3 border border-gray-300  font-mono rounded-sm truncate text-green-500 bg-[#00a85114] border-[#00a85133] dark:border-[#003300] text-[0.8rem] sm:text-[1rem]  font-normal md:text-[1.3rem]">
               <div className="text-black dark:text-white">
                 re-peg status&nbsp;
               </div>
@@ -341,7 +325,7 @@ const App: React.FC = () => {
             <div className="flex flex-row items-center justify-center">
               <div
                 id="price"
-                className={`py-2 px-3 border flex items-center space-x-1 border-gray-300  font-mono rounded-sm text-bl text-[0.8rem] text-red sm:text-[1rem] md:text-[1.3rem] font-normal bg-red-300`}
+                className={`py-2 px-3 border flex items-center space-x-1 border-gray-300  font-mono rounded-sm text-bl text-[0.8rem] text-red sm:text-[1rem] md:text-[1.3rem] font-normal bg-red-600`}
               >
                 <span className="text-black dark:text-white">
                   re-peg status{" "}
