@@ -1,48 +1,68 @@
-import React, { useEffect, useRef, useState, useCallback } from "react";
+import { ChevronDown } from "lucide-react";
+import { useState } from "react";
 
-interface AccordionProps {
-  clr: boolean;
+interface AccordionItem {
   title: string;
   content: string;
 }
 
-const Accordion: React.FC<AccordionProps> = ({ clr, title, content }) => {
-  const [active, setActive] = useState(false);
-  const contentRef = useRef<HTMLDivElement>(null);
+interface AccordionProps {
+  darkmode: boolean;
+  items: AccordionItem[];
+}
 
-  const toggleAccordion = useCallback(() => {
-    setActive((prevActive) => !prevActive);
-  }, []);
+const AccordionItem: React.FC<{
+  title: string;
+  content: string;
+  isOpen: boolean;
+  onToggle: () => void;
+  darkmode: boolean;
+}> = ({ title, content, isOpen, onToggle, darkmode }) => (
+  <div className="border-b border-gray-200 dark:border-gray-700 last:border-0">
+    <button
+      className="w-full py-4 px-2 flex justify-between items-center hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
+      onClick={onToggle}
+    >
+      <span
+        className={`text-lg ${darkmode ? "text-gray-300" : "text-gray-900"}`}
+      >
+        {title}
+      </span>
+      <ChevronDown
+        className={`w-5 h-5 transform transition-transform ${
+          isOpen ? "rotate-180" : ""
+        } ${darkmode ? "text-gray-300" : "text-gray-900"}`}
+      />
+    </button>
+    {isOpen && (
+      <div
+        className={`px-2 pb-4 ${darkmode ? "text-gray-300" : "text-gray-700"}`}
+      >
+        {content}
+      </div>
+    )}
+  </div>
+);
 
-  useEffect(() => {
-    if (contentRef.current) {
-      contentRef.current.style.maxHeight = active
-        ? `${contentRef.current.scrollHeight}px`
-        : "0px";
-    }
-  }, [active]);
+const Accordion: React.FC<AccordionProps> = ({ items, darkmode }) => {
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
+
+  const handleToggle = (index: number) => {
+    setOpenIndex(openIndex === index ? null : index);
+  };
 
   return (
-    <div className=" flex flex-col gap-2 items-center justify-between">
-      <div
-        className={`w-full flex justify-between items-center cursor-pointer`}
-        onClick={toggleAccordion}
-      >
-        <p className="text-lg">{title}</p>
-        <span className="ml-4 text-xl">{active ? "-" : "+"}</span>
-      </div>
-      <div
-        ref={contentRef}
-        className="overflow-hidden w-full justify-start items-center transition-max-height duration-300 ease-in-out"
-        style={{ maxHeight: "0px" }}
-      >
-        <span className={!clr ? "text-gray-700" : "text-gray-400"}>
-          <div
-            className=" py-2"
-            dangerouslySetInnerHTML={{ __html: content }}
-          />
-        </span>
-      </div>
+    <div className="divide-y divide-gray-200 dark:divide-gray-700">
+      {items.map((item, index) => (
+        <AccordionItem
+          key={index}
+          title={item.title}
+          content={item.content}
+          isOpen={openIndex === index}
+          onToggle={() => handleToggle(index)}
+          darkmode={darkmode}
+        />
+      ))}
     </div>
   );
 };
