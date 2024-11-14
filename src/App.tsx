@@ -1,7 +1,8 @@
 import { TbTriangleFilled } from "react-icons/tb";
 import { RxTriangleDown } from "react-icons/rx";
 import Accordion from "./components/accordion";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import useOutsideDetector from "./dropdown";
 
 const App: React.FC = () => {
   const [price, setPrice] = useState<string>("$0.00");
@@ -9,13 +10,20 @@ const App: React.FC = () => {
   const [marketCap, setMarketCap] = useState<number>(0);
   const [priceColor, setPriceColor] = useState<string>("text ");
   const [holders, setHolders] = useState<number>(0);
-  const [articleIsOpen, setArticleIsOpen] = useState<boolean>(false);
-  const [chartIsOpen, setChartIsOpen] = useState<boolean>(false);
-  const [cnIsOpen, setCnIsOpen] = useState<boolean>(false);
+  const [active, setActive] = useState<number>(0);
   const [darkMode, setDarkMode] = useState<boolean>(
     () => localStorage.getItem("theme") === "dark"
   );
 
+  const odRef = useRef(null);
+  const odRef_1 = useRef(null);
+  const odRef_2 = useRef(null);
+  // const odRef_3 = useRef(null);
+  const handle = () => {
+    setActive(0);
+  };
+
+  useOutsideDetector([odRef, odRef_1, odRef_2], handle);
   useEffect(() => {
     if (darkMode) {
       document.documentElement.classList.add("dark");
@@ -84,9 +92,9 @@ const App: React.FC = () => {
     return () => clearInterval(interval);
   }, []);
   return (
-    <div className="flex flex-col items-center  gap-6 p-6 font-b612 bg-white dark:bg-slate-900 h-screen">
+    <div className="flex flex-col items-center  gap-6 p-6 font-b612 bg-white dark:bg-black h-screen">
       <nav className="bg-inherit  p-4 z-30 flex flex-row gap-4 items-center">
-        <div className="container  flex justify-between items-center rounded-full border-black border-2 px-6 py-2">
+        <div className="container  flex justify-between items-center rounded-full border-black dark:border-white border-2 px-6 py-2">
           <ul className="flex space-x-7">
             <div className=" text-black dark:text-gray-300 text-lg truncate">
               $1 stable memecoin
@@ -94,7 +102,7 @@ const App: React.FC = () => {
 
             <li>
               <a
-                className="text-black dark:text-gray-300 underline underline-offset-1 hover:text-gray-400"
+                className="text-black dark:text-gray-300 underline dark:underline underline-offset-1 hover:text-gray-400"
                 href="https://x.com/1stablememecoin"
               >
                 x
@@ -127,14 +135,15 @@ const App: React.FC = () => {
             </li>
 
             <div className="relative">
-              <button
-                onClick={() => setArticleIsOpen(!articleIsOpen)}
-                className="flex flex-row items-center  text-black dark:text-gray-300 hover:text-gray-400 focus:outline-none"
+              <div
+                className="flex flex-row items-center  text-black dark:text-gray-300 hover:text-gray-400 focus:outline-none hover:cursor-pointer"
+                ref={odRef}
+                onClick={() => setActive(active === 1 ? 0 : 1)}
               >
                 articles
                 <RxTriangleDown />
-              </button>
-              {articleIsOpen && (
+              </div>
+              {active === 1 && (
                 <ul className="absolute -right-[50%] bg-gray-300 bg-10 mt-2 rounded-md shadow-lg">
                   <li>
                     <a
@@ -166,13 +175,14 @@ const App: React.FC = () => {
 
             <div className="relative">
               <button
-                onClick={() => setChartIsOpen(!chartIsOpen)}
+                onClick={() => setActive(active === 2 ? 0 : 2)}
+                ref={odRef_1}
                 className="flex flex-row items-center  text-black dark:text-gray-300 hover:text-gray-400 focus:outline-none"
               >
                 charts
                 <RxTriangleDown />
               </button>
-              {chartIsOpen && (
+              {active == 2 && (
                 <ul className="absolute -right-[50%] bg-gray-300 z-10 mt-2 rounded-md shadow-lg">
                   <li>
                     <a
@@ -203,17 +213,18 @@ const App: React.FC = () => {
             </div>
             <div className="relative">
               <button
-                onClick={() => setCnIsOpen(!cnIsOpen)}
+                onClick={() => setActive(active === 3 ? 0 : 3)}
+                ref={odRef_2}
                 className="flex flex-row items-center  text-black dark:text-gray-300 hover:text-gray-400 focus:outline-none"
               >
                 CN
                 <RxTriangleDown />
               </button>
-              {cnIsOpen && (
-                <ul className="absolute -right-[50%] bg-gray-300 z-10 mt-2 rounded-md shadow-lg">
+              {active === 3 && (
+                <ul className="absolute -right-[50%] bg-gray-300 z-10 mt-2 rounded-md shadow-lg w-30">
                   <li>
                     <a
-                      className="block p-2 text-black dark:text-gray-300 hover:bg-gray-600"
+                      className="block p-2 text-black dark:text-gray-300 hover:bg-gray-600 truncate"
                       href="#"
                     >
                       Option 1
@@ -241,13 +252,13 @@ const App: React.FC = () => {
           </ul>
         </div>
 
-        <div className="flex flex-row">
+        <div className="flex flex-row border border-black dark:border-white hover:cursor-pointer">
           <div
-            className="w-[20px] h-[30px] bg-black hover:cursor-pointer "
+            className="w-[10px] h-[18px] bg-black "
             onClick={() => setDarkMode(true)}
           ></div>
           <div
-            className="w-[20px] h-[30px] bg-gray-300 border-black border-2 hover:cursor-pointer "
+            className="w-[10px] h-[18px] bg-gray-300 "
             onClick={() => setDarkMode(false)}
           ></div>
         </div>
@@ -260,7 +271,7 @@ const App: React.FC = () => {
           <div>It's simple, we just need to re-peg it back to $1.00</div>
         </div>
         <div className="flex items-center">
-          {priceColor === "text-black dark:text-gray-300" ? (
+          {priceColor === "text-black" ? (
             <div
               id="price"
               className={`text-[1rem]  sm:text-[2rem] md:text-[3rem] dark:text-gray-300 font-bold ${priceColor}`}
@@ -270,24 +281,19 @@ const App: React.FC = () => {
           ) : priceColor === "text-green-500" ? (
             <div className="flex flex-row items-center justify-center">
               <TbTriangleFilled className="text-base text-green-500" />
-              {/* <img
-                className="w-4 sm:w-6 md:w-8 mr-3 "
-                src="https://i.postimg.cc/SR3fSFxh/up.png"
-                alt="down"
-              /> */}
               <div
                 id="price"
-                className={`text-[1rem]  sm:text-[2rem] md:text-[3rem] font-bold ${priceColor}`}
+                className={`text-[1rem]  sm:text-[2rem] md:text-[3rem] font-bold text-green-500`}
               >
                 {price} / $1
               </div>
             </div>
           ) : (
             <div className="flex flex-row items-center justify-center">
-              <TbTriangleFilled className="text-base text-green-500" />
+              <TbTriangleFilled className="text-base text-red-500 rotate-180 " />
               <div
                 id="price"
-                className={`text-[1rem]  sm:text-[2rem] md:text-[3rem] font-bold ${priceColor}`}
+                className={`text-[1rem]  sm:text-[2rem] md:text-[3rem] font-bold text-red-500`}
               >
                 {price} / $1
               </div>
@@ -295,90 +301,91 @@ const App: React.FC = () => {
           )}
         </div>
 
-        <div
-          className="font-bold roboto-bold text-xl hover:cursor-pointer"
-          onClick={() => copyCA()}
-        >
-          4UTEFQjNMvfQF5NT8mVfXdMAKoL7hS7i9U4mMVAzpump
+        <div>
+          <div className="font-bold roboto-bold text-xl bg-box dark:bg-[#262626] dark:border-0 p-[10px_20px] rounded-sm border border-gray-300">
+            4UTEFQjNMvfQF5NT8mVfXdMAKoL7hS7i9U4mMVAzpump
+          </div>
+
+          <div
+            className="text-center mt-2 text-gray-400 hover:cursor-pointer italic"
+            onClick={() => copyCA()}
+          >
+            [Click to copy the contract address]
+          </div>
         </div>
 
         <div className="flex space-x-8 mt-5">
-          <div className="text-[0.8rem] sm:text-[1rem] md:text-[1.1rem]">
-            holders [{holders}]
+          <div className="text-[0.8rem] py-2 px-3 border border-gray-300  font-mono bg-box dark:bg-[#262626] dark:border-0 rounded-sm sm:text-[1rem] md:text-[1.3rem] font-normal">
+            holders [{(holders / 1000).toFixed(1)}k]
           </div>
 
-          {priceColor === "text-black dark:text-gray-300" ? (
+          {priceColor === "text-black" ? (
             <div
               id="price"
-              className={`text-[#000000] dark:text-gray-300 text-[0.8rem] sm:text-[1rem] md:text-[1.2rem] font-bold ${priceColor}`}
+              className={`text-[#000000] py-2 px-3 border border-gray-300 font-mono bg-box dark:bg-[#262626] dark:border-0 rounded-sm dark:text-gray-300 text-[0.8rem] sm:text-[1rem] md:text-[1.3rem] font-normal  ${priceColor}`}
             >
-              re-peg status [
-              <span className="text-green-500">
-                {((marketCap / 1000000000) * 100).toFixed(2)}%
-              </span>
-              ]
+              <div className="text-black dark:text-white">re-peg status </div>[
+              {((marketCap / 1000000000) * 100).toFixed(2)}%]
             </div>
           ) : priceColor === "text-green-500" ? (
-            <div className="flex-wrap flex flex-row items-center justify-center">
-              <div
-                id="price"
-                className={`truncate text-[#000000] dark:text-gray-300 text-[0.8rem] sm:text-[1rem] md:text-[1.2rem] `}
-              >
+            <div className="flex flex-row items-center justify-center py-2 px-3 border border-gray-300  font-mono rounded-sm truncate text-green-500 bg-green-200 dark:bg-[#003300ba] dark:border-0  text-[0.8rem] sm:text-[1rem]  font-normal md:text-[1.3rem]">
+              <div className="text-black dark:text-white">
                 re-peg status&nbsp;
               </div>
-              <div className="flex flex-row items-center justify-center">
-                [
-                <span className="text-green-500">
-                  {((marketCap / 1000000000) * 100).toFixed(2)}%
-                </span>
-                ]
-                <TbTriangleFilled className="text-xs text-green-500" />
-              </div>
+              <span className="text-black dark:text-white">[</span>
+              {((marketCap / 1000000000) * 100).toFixed(2)}%
+              <span className="text-black dark:text-white">]</span>
+              <TbTriangleFilled className="text-xs text-green-500" />
             </div>
           ) : (
             <div className="flex flex-row items-center justify-center">
               <div
                 id="price"
-                className={`text-neutral-950 text-bl text-[0.8rem] sm:text-[1rem] md:text-[1.2rem] `}
+                className={`py-2 px-3 border flex items-center space-x-1 border-gray-300  font-mono rounded-sm text-bl text-[0.8rem] text-red sm:text-[1rem] md:text-[1.3rem] font-normal bg-red-300`}
               >
-                re-peg status [
-                <span className="text-green-500">
-                  {((marketCap / 1000000000) * 100).toFixed(2)}%
+                <span className="text-black dark:text-white">
+                  re-peg status{" "}
                 </span>
-                ]
+                [{((marketCap / 1000000000) * 100).toFixed(2)}
+                ]%
+                <TbTriangleFilled className="text-xs text-red-500 rotate-180" />
               </div>
-              <TbTriangleFilled className="text-xs text-green-500" />
             </div>
           )}
 
-          <div className="text-[0.8rem] sm:text-[1rem] md:text-[1.2rem]">
-            marketCap [{marketCap}]
+          <div className="text-[0.8rem] py-2 px-3 border border-gray-300  font-mono bg-box dark:bg-[#262626] dark:border-0 rounded-sm sm:text-[1rem] md:text-[1.3rem] font-normal ">
+            marketCap [{Math.ceil(marketCap / 1000)}k]
           </div>
 
-          <div className="text-[0.8rem] sm:text-[1rem] md:text-[1.2rem]">
-            Volume [{volume}]
+          <div className="text-[0.8rem] py-2 px-3 border border-gray-300  font-mono bg-box dark:bg-[#262626] dark:border-0 rounded-sm sm:text-[1rem] md:text-[1.3rem] font-normal ">
+            Volume [{(volume / 1000).toFixed(1)}k]
           </div>
         </div>
 
-        <div className="w-full mt-10">
+        <div className="w-fzull my-10 bg-box dark:bg-[#262626] dark:border-0 rounded-md py-6 px-10 border border-gray-300">
           <Accordion
+            clr={darkMode}
             title="$1?"
-            content="Lorem ipsum dolcvve magna aliqua. Ut"
+            content="stable coins right? this is at $0.00 so we all have to re-peg it back to trade like other stablecoins
+"
           />
 
           <Accordion
+            clr={darkMode}
             title="mintable?"
-            content="Lorem ipsum dolcvve magna aliqua. Ut"
+            content="0 authorities this is not usdc or usdt "
           />
 
           <Accordion
-            title="liquidity burned?"
-            content="Lorem ipsum dolcvve magna aliqua. Ut"
+            clr={darkMode}
+            title="$1 or other stablecoins?"
+            content="yes"
           />
 
           <Accordion
-            title="wen re-peg"
-            content="Lorem ipsum dolcvve magna aliqua. Ut"
+            clr={darkMode}
+            title="wen re-peg?"
+            content="hodl & believe"
           />
         </div>
       </div>

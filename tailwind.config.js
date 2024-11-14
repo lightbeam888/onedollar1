@@ -8,7 +8,10 @@ module.exports = {
         xs: "290px",
       },
       fontFamily: {
-        b612: ['"B612 Mono"', 'monospace'],
+        b612: ['"B612 Mono"', "monospace"],
+      },
+      colors: {
+        box: "#ECE9E6",
       },
     },
   },
