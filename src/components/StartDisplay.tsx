@@ -11,7 +11,7 @@ const StatBox: React.FC<{ label: string; value: string }> = ({
   label,
   value,
 }) => (
-  <div className="flex text-[0.8rem] py-1 px-2 border border-gray-300 font-mono bg-box dark:bg-[#262626] dark:border-0 rounded-sm sm:text-[1rem] md:text-[1.3rem] font-normal">
+  <div className=" truncate text-[0.8rem] py-1 px-2 border border-gray-300 font-mono bg-box dark:bg-[#262626] dark:border-0 rounded-sm sm:text-[1rem] md:text-[1.3rem] font-normal">
     {label} {value}
   </div>
 );
@@ -45,7 +45,11 @@ export const StatsDisplay: React.FC<StatsDisplayProps> = ({
         <span className="text-black truncate dark:text-white">
           re-peg status
         </span>
-        <span>[{repegPercentage}%]</span>
+        [
+        <span className={`${isGreen ? "text-green-500" : "text-red-500"}`}>
+          {repegPercentage}%
+        </span>
+        ]
         {!isNeutral && (
           <Triangle
             className={`h-4 w-4 ${

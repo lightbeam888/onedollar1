@@ -36,7 +36,7 @@ const AccordionItem: React.FC<{
     </button>
     {isOpen && (
       <div
-        className={`px-2 pb-4 ${darkmode ? "text-gray-300" : "text-gray-700"}`}
+        className={`px-2 pb-4  ${darkmode ? "text-gray-300" : "text-gray-700"}`}
       >
         {content}
       </div>
@@ -52,7 +52,7 @@ const Accordion: React.FC<AccordionProps> = ({ items, darkmode }) => {
   };
 
   return (
-    <div className="divide-y divide-gray-200 dark:divide-gray-700">
+    <div className="divide-y max-w-3xl mb-10 divide-gray-200 dark:divide-gray-700">
       {items.map((item, index) => (
         <AccordionItem
           key={index}

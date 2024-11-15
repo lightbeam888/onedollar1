@@ -16,9 +16,10 @@ export const PriceDisplay: React.FC<PriceDisplayProps> = ({
     <div className="flex items-center">
       {!isNeutral && (
         <Triangle
-          className={`text-base ${
+          className={`mr-4 ${
             isGreen ? "text-green-500" : "text-red-500 rotate-180"
           }`}
+          fill="currentColor"
         />
       )}
       <div

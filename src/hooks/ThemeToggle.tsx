@@ -7,7 +7,7 @@ export const ThemeToggle: React.FC<ThemeToggleProps> = ({
   darkMode,
   onToggle,
 }) => (
-  <div className="flex border border-black dark:border-white rounded-sm overflow-hidden">
+  <div className="hidden sm:flex border border-black dark:border-white rounded-sm overflow-hidden">
     <div
       className={`w-[20px] h-[24px] bg-black transition-opacity hover:cursor-pointer ${
         darkMode ? "opacity-100" : "opacity-50"
