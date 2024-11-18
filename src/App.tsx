@@ -13,6 +13,7 @@ import { BsLightningFill, BsMedium } from "react-icons/bs";
 import { RiTwitterXFill } from "react-icons/ri";
 import { TbBrandTelegram } from "react-icons/tb";
 import useOutside from "./useOutside";
+import { FiMenu } from "react-icons/fi";
 
 const BACKEND_URL = "https://new-onedollar-be.onrender.com/api";
 const CONTRACT_ADDRESS = "4UTEFQjNMvfQF5NT8mVfXdMAKoL7hS7i9U4mMVAzpump";
@@ -270,7 +271,7 @@ const App: React.FC = () => {
               ref={menuRef}
               onClick={() => setActive1(active1 === 2 ? 0 : 2)}
             >
-              menu
+              <FiMenu className="text-[1.2rem]" />
             </div>
           </div>
           <div className="py-4">
@@ -398,7 +399,7 @@ const App: React.FC = () => {
           />
         </div>
         <div
-          className={`w-screen h-screen bg-black z-10 fixed transition-all duration-500 ${
+          className={`w-screen h-screen bg-[#1b1b1b] z-10 fixed transition-all duration-500 ${
             active1 === 2 ? "top-20" : "-top-[100%]"
           }`}
         >
