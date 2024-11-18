@@ -281,12 +281,11 @@ const App: React.FC = () => {
             </div>
           </div>
           <div className="text-[0.8rem] flex justify-center items-center text-cs text-center text-black font-bold leading-6 py-2 px-4 bg-cs rounded-full">
-            whitepaper[
+            whitepaper
             <Triangle
-              className="w-2 h-3 text-yellow-800 rotate-90"
+              className="w-2 h-3 ml-1 text-black rotate-90"
               fill="currentColor"
             />
-            ]
           </div>
           <div className=" text-center text-[1rem] my-4">
             <div>4UTEFQjNMvfQF5NT8mVfX</div>
@@ -307,16 +306,7 @@ const App: React.FC = () => {
                 : "bg-red-800 border border-red-900"
             }`}
           >
-            <span
-              className={` ${
-                priceColor !== "text-white" && priceColor === "text-green-300"
-                  ? "text-[#188d63]"
-                  : "text-red-500"
-              }`}
-            >
-              $1-price{" "}
-            </span>{" "}
-            [
+            <span className="text-white">$1-price </span> [
             <Triangle
               className={`w-2 h-3 ${
                 priceColor !== "text-black" && priceColor === "text-green-300"
@@ -343,16 +333,7 @@ const App: React.FC = () => {
                 : "bg-red-800 border border-red-900"
             }`}
           >
-            <span
-              className={` ${
-                priceColor !== "text-white" && priceColor === "text-green-300"
-                  ? "text-[#188d63]"
-                  : "text-red-500"
-              }`}
-            >
-              re-peg status{" "}
-            </span>{" "}
-            [
+            <span className="text-white">re-peg status </span> [
             <div
               className={` ${
                 priceColor !== "text-white" && priceColor === "text-green-300"
