@@ -20,7 +20,7 @@ const AccordionItem: React.FC<{
 }> = ({ title, content, isOpen, onToggle, darkmode }) => (
   <div className="border-b border-gray-200 dark:border-gray-700 last:border-0">
     <button
-      className="w-full py-4 px-2 flex justify-between items-center hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
+      className="w-full py-4 px-2 flex justify-between items-center hover:bg-gray-700 sm:hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
       onClick={onToggle}
     >
       <span

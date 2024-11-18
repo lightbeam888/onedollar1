@@ -328,7 +328,7 @@ const App: React.FC = () => {
             ]
           </div>
           <div
-            className={` py-4 ${
+            className={` py-4 text-[1.4rem] ${
               priceColor !== "text-white" && priceColor === "text-green-300"
                 ? "text-[#188d63]"
                 : "text-red-500"
