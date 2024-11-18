@@ -259,7 +259,7 @@ const App: React.FC = () => {
               onClick={() => setActive1(active1 === 1 ? 0 : 1)}
             >
               <Triangle
-                className={`w-5 h-3 text-[#188d63] transition-all ${
+                className={`w-5 h-3 text-orange-700 transition-all ${
                   active1 === 1 ? "" : "rotate-180"
                 }`}
                 fill="currentColor"
@@ -360,7 +360,7 @@ const App: React.FC = () => {
                   : "text-red-500"
               }`}
             >
-              {((marketCap / 1000000000) * 100).toFixed(2)}
+              {((marketCap / 1000000000) * 100).toFixed(2)}%
             </div>
             ]
             <Triangle

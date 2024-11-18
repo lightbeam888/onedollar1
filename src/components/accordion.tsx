@@ -25,7 +25,7 @@ const AccordionItem: React.FC<{
     >
       <span
         className={`text-sm sm:text-lg truncate ${
-          darkmode ? "text-gray-300" : "text-gray-900"
+          darkmode ? "text-gray-300" : "text-white sm:text-gray-900"
         }`}
       >
         {title}
@@ -33,12 +33,14 @@ const AccordionItem: React.FC<{
       <ChevronDown
         className={`w-5 h-5 transform transition-transform ${
           isOpen ? "rotate-180" : ""
-        } ${darkmode ? "text-gray-300" : "text-gray-900"}`}
+        } ${darkmode ? "text-gray-300" : "text-white sm:text-gray-900"}`}
       />
     </button>
     {isOpen && (
       <div
-        className={`px-2 pb-4  ${darkmode ? "text-gray-300" : "text-gray-700"}`}
+        className={`px-2 pb-4  ${
+          darkmode ? "text-gray-300" : "text-white sm:text-gray-700"
+        }`}
       >
         {content}
       </div>
@@ -54,7 +56,7 @@ const Accordion: React.FC<AccordionProps> = ({ items, darkmode }) => {
   };
 
   return (
-    <div className="divide-y max-w-3xl mb-10 divide-gray-200 dark:divide-gray-700">
+    <div className="divide-y max-w-3xl mb-10  divide-gray-200 dark:divide-gray-700">
       {items.map((item, index) => (
         <AccordionItem
           key={index}
