@@ -24,7 +24,7 @@ export const StatsDisplay: React.FC<StatsDisplayProps> = ({
 }) => {
   const repegPercentage = ((marketCap / 1000000000) * 100).toFixed(2);
   const isNeutral = priceColor === "text-black dark:text-gray-300";
-  const isGreen = priceColor === "text-green-500";
+  const isGreen = priceColor === "text-green-300";
 
   return (
     <div className="flex justify-center gap-4 mt-5">
@@ -46,14 +46,14 @@ export const StatsDisplay: React.FC<StatsDisplayProps> = ({
           re-peg status
         </span>
         [
-        <span className={`${isGreen ? "text-green-500" : "text-red-500"}`}>
+        <span className={`${isGreen ? "text-green-300" : "text-red-500"}`}>
           {repegPercentage}%
         </span>
         ]
         {!isNeutral && (
           <Triangle
             className={`h-4 w-4 ${
-              isGreen ? "text-green-500" : "text-red-500 rotate-180"
+              isGreen ? "text-green-300" : "text-red-500 rotate-180"
             }`}
             fill="currentColor"
           />
