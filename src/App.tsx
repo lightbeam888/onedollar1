@@ -284,10 +284,10 @@ const App: React.FC = () => {
         </div>
         <div className="bg-gray-800 pt-4 pb-10 w-full flex flex-col justify-center items-center">
           <div
-            className={`flex justify-center items-center bg-opacity-60 border rounded-sm text-white text-[1rem] p-3 ${
+            className={`flex justify-center items-center bg-opacity-60  rounded-sm text-white text-[1rem] p-3 ${
               priceColor !== "text-black" && priceColor === "text-green-300"
-                ? "bg-[#06402b] border-green-950 "
-                : "bg-red-800"
+                ? "bg-[#06402b] border border-green-950 "
+                : "bg-red-800 border border-red-900"
             }`}
           >
             <span
@@ -304,14 +304,14 @@ const App: React.FC = () => {
               className={`w-2 h-3 ${
                 priceColor !== "text-black" && priceColor === "text-green-300"
                   ? "text-[#188d63]"
-                  : "text-red-500"
+                  : "text-red-500 rotate-180"
               }`}
               fill="currentColor"
             />
             ]
           </div>
           <div
-            className={` ${
+            className={` py-4 ${
               priceColor !== "text-white" && priceColor === "text-green-300"
                 ? "text-[#188d63]"
                 : "text-red-500"
@@ -320,10 +320,10 @@ const App: React.FC = () => {
             {price} / $1
           </div>
           <div
-            className={`flex justify-center items-center bg-opacity-60 border rounded-sm text-white text-[1rem] p-3 ${
+            className={`flex justify-center items-center bg-opacity-60 rounded-sm text-white text-[1rem] p-3 ${
               priceColor !== "text-black" && priceColor === "text-green-300"
-                ? "bg-[#06402b] border-green-950 "
-                : "bg-red-800"
+                ? "bg-[#06402b] border border-green-950 "
+                : "bg-red-800 border border-red-900"
             }`}
           >
             <span
@@ -350,7 +350,7 @@ const App: React.FC = () => {
               className={`w-2 h-3 ${
                 priceColor !== "text-black" && priceColor === "text-green-300"
                   ? "text-[#188d63]"
-                  : "text-red-500"
+                  : "text-red-500 rotate-180"
               }`}
               fill="currentColor"
             />
