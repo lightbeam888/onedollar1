@@ -93,6 +93,23 @@ const App: React.FC = () => {
     }
   };
 
+  const calc = (_price: any) => {
+    let cnt = 0,
+      f = 0;
+    let str = _price.toString(),
+      rlt = "$0.0[";
+    for (let i = 3; i < str.length; i++) {
+      if (str[i] !== "0" && !f) {
+        rlt += cnt + "]";
+        f = 1;
+      }
+      if (f) rlt += str[i];
+      cnt++;
+      console.log(rlt);
+    }
+    return rlt;
+  };
+
   useEffect(() => {
     fetchData();
     const interval = setInterval(fetchData, 5000);
@@ -232,9 +249,9 @@ const App: React.FC = () => {
           </div>
         </main>
       </div>
-      <div className="sm:hidden w-screen min-h-screen bg-black text-white font-b612">
+      <div className="sm:hidden w-screen min-h-screen bg-[#1b1b1b] text-white font-b612">
         <div className="px-6 py-4 flex flex-col justify-center items-center">
-          <div className="flex items-center justify-between bg-black py-2 px-6 border border-white rounded-full w-full z-[100]">
+          <div className="flex items-center justify-between bg-[#1b1b1b] py-2 px-6 border border-white rounded-full w-full z-[100]">
             <div className="text-[1.2rem]">$1</div>
             <div
               className="flex ml-[6px]"
@@ -282,9 +299,9 @@ const App: React.FC = () => {
             [tap to copy contract address]
           </div>
         </div>
-        <div className="bg-gray-800 pt-4 pb-10 w-full flex flex-col justify-center items-center">
+        <div className="bg-[#181818] pt-4 pb-10 w-full flex flex-col justify-center items-center">
           <div
-            className={`flex justify-center items-center bg-opacity-60  rounded-sm text-white text-[1rem] p-3 ${
+            className={`flex justify-center items-center bg-opacity-50  rounded-sm text-white text-[1rem] p-1.5 ${
               priceColor !== "text-black" && priceColor === "text-green-300"
                 ? "bg-[#06402b] border border-green-950 "
                 : "bg-red-800 border border-red-900"
@@ -317,10 +334,10 @@ const App: React.FC = () => {
                 : "text-red-500"
             }`}
           >
-            {price} / $1
+            {calc(price)} / $1
           </div>
           <div
-            className={`flex justify-center items-center bg-opacity-60 rounded-sm text-white text-[1rem] p-3 ${
+            className={`flex justify-center items-center bg-opacity-50 rounded-sm text-white text-[1rem] p-1.5 ${
               priceColor !== "text-black" && priceColor === "text-green-300"
                 ? "bg-[#06402b] border border-green-950 "
                 : "bg-red-800 border border-red-900"
@@ -356,7 +373,7 @@ const App: React.FC = () => {
             />
           </div>
         </div>
-        <div className="flex flex-col justify-center items-center py-5">
+        <div className="flex flex-col justify-center items-center bg-[#121212] py-5">
           <div className=" truncate py-1 px-2 border border-gray-300 font-mono bg-[#262626] dark:border-0 rounded-sm text-[1.3rem] font-normal">
             market-cap [{`${Math.ceil(marketCap / 1000)}k`}]
           </div>
@@ -367,7 +384,7 @@ const App: React.FC = () => {
             holders [{`${(holders / 1000).toFixed(1)}k`}]
           </div>
         </div>
-        <div className="w-full bg-box dark:bg-[#262626] dark:border-0 rounded-md py-6 px-10 border border-gray-300">
+        <div className="w-full bg-[#181818] dark:border-0 rounded-md py-6 px-10 border border-gray-300">
           <div className="flex justify-start items-center">
             <Triangle
               className="w-3 h-3 mr-2 text-blue-600 rotate-90"
