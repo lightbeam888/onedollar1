@@ -24,7 +24,7 @@ const AccordionItem: React.FC<{
       onClick={onToggle}
     >
       <span
-        className={`text-sm sm:text-lg truncate ${
+        className={`text-xs sm:text-lg truncate ${
           darkmode ? "text-gray-300" : "text-white sm:text-gray-900"
         }`}
       >

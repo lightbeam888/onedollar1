@@ -355,17 +355,17 @@ const App: React.FC = () => {
           </div>
         </div>
         <div className="flex flex-col justify-center items-center bg-[#121212] py-5">
-          <div className=" truncate py-1 px-2 border border-gray-300 font-mono bg-[#262626] dark:border-0 rounded-sm text-[1.3rem] font-normal">
+          <div className=" truncate py-1 px-2 font-mono bg-[#303030] dark:border-0 rounded-sm text-[1.3rem] font-normal">
             market-cap [{`${Math.ceil(marketCap / 1000)}k`}]
           </div>
-          <div className=" truncate py-1 px-2 border border-gray-300 font-mono bg-[#262626] dark:border-0 rounded-sm text-[1.3rem] font-normal my-4">
+          <div className=" truncate py-1 px-2 font-mono bg-[#303030] dark:border-0 rounded-sm text-[1.3rem] font-normal my-4">
             tdv [{`${(volume / 1000).toFixed(1)}k`}]
           </div>
-          <div className=" truncate py-1 px-2 border border-gray-300 font-mono bg-[#262626] dark:border-0 rounded-sm text-[1.3rem] font-normal">
+          <div className=" truncate py-1 px-2 font-mono bg-[#303030] dark:border-0 rounded-sm text-[1.3rem] font-normal">
             holders [{`${(holders / 1000).toFixed(1)}k`}]
           </div>
         </div>
-        <div className="w-full bg-[#181818] dark:border-0 rounded-md py-6 px-10 border border-gray-300">
+        <div className="w-full bg-[#222222] dark:border-0 rounded-md py-6 px-10 border-0 sm:border border-gray-300">
           <div className="flex justify-start items-center">
             <Triangle
               className="w-3 h-3 mr-2 text-blue-600 rotate-90"
