@@ -12,7 +12,6 @@ import { useEffect, useRef, useState } from "react";
 import { BsLightningFill, BsMedium } from "react-icons/bs";
 import { RiTwitterXFill } from "react-icons/ri";
 import { TbBrandTelegram } from "react-icons/tb";
-import { FaMedium } from "react-icons/fa";
 import useOutside from "./useOutside";
 
 const BACKEND_URL = "https://new-onedollar-be.onrender.com/api";
