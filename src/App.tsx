@@ -199,14 +199,17 @@ const App: React.FC = () => {
             </p>
             <p>It's simple, we just need to re-peg it back to $1.00</p>
           </div>
-          <div className="flex items-center text-lg bg-box dark:bg-[#262626] border border-gray-300 rounded-sm px-4 py-1">
+          <a
+            href="https://drive.google.com/file/d/1-lRFjFz8uyh7O1pJW4yYPLo8sL0z8W7I/view?usp=sharing"
+            className="flex items-center text-lg bg-box dark:bg-[#262626] border border-gray-300 rounded-sm px-4 py-1"
+          >
             WhitePaper[
             <Triangle
               className="w-2 h-3 text-[#00A851] rotate-90"
               fill="currentColor"
             />
             ]
-          </div>
+          </a>
           <PriceDisplay price={price} priceColor={priceColor} />
 
           <div className="mb-6 hover:cursor-pointer" onClick={() => copyCA()}>
@@ -282,13 +285,16 @@ const App: React.FC = () => {
               <div>trading below $1.00</div>
             </div>
           </div>
-          <div className="text-[0.8rem] flex justify-center items-center text-cs text-center text-black font-bold leading-6 py-2 px-4 bg-cs rounded-full">
+          <a
+            href="https://drive.google.com/file/d/1-lRFjFz8uyh7O1pJW4yYPLo8sL0z8W7I/view?usp=sharing"
+            className="text-[0.8rem] flex justify-center items-center text-cs text-center text-black font-bold leading-6 py-2 px-4 bg-cs rounded-full"
+          >
             whitepaper
             <Triangle
               className="w-2 h-3 ml-1 text-black rotate-90"
               fill="currentColor"
             />
-          </div>
+          </a>
           <div className=" text-center text-[1rem] my-4">
             <div>4UTEFQjNMvfQF5NT8mVfX</div>
             <div>dMAKoL7hS7i9U4mMVAzpump</div>
@@ -305,7 +311,7 @@ const App: React.FC = () => {
             className={`flex justify-center items-center bg-opacity-50  rounded-sm text-white text-[1rem] p-1.5 ${
               priceColor !== "text-black" && priceColor === "text-[#00A851]"
                 ? "bg-[#06402b] border border-[#00A851] "
-                : "bg-[#FF1625] bg-opacity-10 border border-red-950"
+                : "bg-[#FF162514] border border-[#FF162533]"
             }`}
           >
             <span className="text-white">$1-price </span> [
@@ -332,7 +338,7 @@ const App: React.FC = () => {
             className={`flex justify-center items-center bg-opacity-50 rounded-sm text-white text-[1rem] p-1.5 ${
               priceColor !== "text-black" && priceColor === "text-[#00A851]"
                 ? "bg-[#06402b] border border-green-950 "
-                : "bg-[#FF1625] bg-opacity-10 border border-red-950"
+                : "bg-[#FF162514] border border-[#FF162533]"
             }`}
           >
             <span className="text-white">re-peg status </span> [
@@ -464,20 +470,26 @@ const App: React.FC = () => {
         >
           <div className="flex flex-col">
             <div className="text-white text-[0.6rem] sm:[1.2rem] text-center px-6">
-              please verify the contracty address is verified on jupiter before
-              swpping.
+              please verify the contract address is verified on jupiter before
+              swapping.
             </div>
             <div className="flex-1 height-0 w-full py-4">
               <div className="flex flex-col justify-center items-center px-12">
                 <a
                   href="#"
-                  className="flex justify-between items-end w-full border-b-2 border-white py-4 "
+                  className="flex justify-between items-center w-full border-b-2 border-white pt-2"
                 >
-                  <img className="w-10" src="./jupiter.png" alt="jupiter" />
+                  <div className="flex justify-start items-center">
+                    <img className="w-10" src="./jupiter.png" alt="jupiter" />
+                    <span className="tracking-[0.3rem]">Jupiter</span>
+                  </div>
                   <GoArrowUpRight className="text-[1.5rem]" />
                 </a>
-                <a href="#" className=" flex justify-between mt-4 w-full">
-                  <img src="./raydium.png" className="w-32 pl-1" />
+                <a
+                  href="#"
+                  className=" flex justify-between items-center w-full py-2"
+                >
+                  <img src="./ray.png" className="w-36 pl-1" />
                   <GoArrowUpRight className="text-[1.5rem]" />
                 </a>
               </div>
@@ -499,7 +511,7 @@ const App: React.FC = () => {
               {
                 title: "$1?",
                 content:
-                  "stable coins right? this is at $0.00 so we all have to re-peg it back to trade like other stablecoins",
+                  "the [un]stable memecoin that needs to be re-pegged back.",
               },
               {
                 title: "mintable?",

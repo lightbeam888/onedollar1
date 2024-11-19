@@ -30,11 +30,13 @@ const AccordionItem: React.FC<{
       >
         {title}
       </span>
-      <ChevronDown
+      <div
         className={`w-5 h-5 transform transition-transform ${
-          isOpen ? "rotate-180" : ""
-        } ${darkmode ? "text-gray-300" : "text-white sm:text-gray-900"}`}
-      />
+          darkmode ? "text-gray-300" : "text-white sm:text-gray-900"
+        }`}
+      >
+        {!isOpen ? "+" : "-"}
+      </div>
     </button>
     {isOpen && (
       <div

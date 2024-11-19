@@ -23,8 +23,8 @@ export const StatsDisplay: React.FC<StatsDisplayProps> = ({
   priceColor,
 }) => {
   const repegPercentage = ((marketCap / 1000000000) * 100).toFixed(2);
-  const isNeutral = priceColor === "text-black dark:text-gray-300";
-  const isGreen = priceColor === "text-green-300";
+  const isNeutral = priceColor === "text-black";
+  const isGreen = priceColor === "text-[[#00A851]]";
 
   return (
     <div className="flex justify-center gap-4 mt-5">

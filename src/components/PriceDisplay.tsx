@@ -10,15 +10,15 @@ export const PriceDisplay: React.FC<PriceDisplayProps> = ({
   priceColor,
 }) => {
   const isNeutral = priceColor === "text-black";
-  const isGreen = priceColor === "text-green-300";
+  const isGreen = priceColor === "text-[#00A851]";
 
   return (
     <div className="flex items-center">
       {!isNeutral && (
         <Triangle
           className={`mr-4 ${
-            isGreen ? "text-green-300" : "text-red-500 rotate-180"
-          } ${isNeutral ? "text-dark" : "text"}`}
+            isGreen ? "text-[#00a851]" : "text-red-500 rotate-180"
+          } ${isNeutral ? "text-dark" : ""}`}
           fill="currentColor"
         />
       )}
