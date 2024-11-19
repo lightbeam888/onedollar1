@@ -17,7 +17,7 @@ const AccordionItem: React.FC<{
   onToggle: () => void;
   darkmode: boolean;
 }> = ({ title, content, isOpen, onToggle, darkmode }) => (
-  <div className="border-b border-gray-200 dark:border-gray-700 last:border-0">
+  <div className="border-0 sm:border-b sm:border-gray-200 dark:border-gray-700 last:border-0">
     <button
       className="w-full py-4 px-2 flex justify-between items-center hover:bg-gray-700 sm:hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
       onClick={onToggle}
@@ -57,7 +57,7 @@ const Accordion: React.FC<AccordionProps> = ({ items, darkmode }) => {
   };
 
   return (
-    <div className="divide-y max-w-3xl mb-10  divide-gray-200 dark:divide-gray-700">
+    <div className="divide-0 sm:divide-y max-w-3xl mb-10  sm:divide-gray-500 dark:divide-gray-700">
       {items.map((item, index) => (
         <AccordionItem
           key={index}

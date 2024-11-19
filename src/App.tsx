@@ -133,22 +133,9 @@ const App: React.FC = () => {
                 <NavLink href="https://t.me/onedollarportal" label="telegram" />
                 <NavLink href="https://x.com/1stablememecoin" label="blog" />
                 <NavLink href="#" label="roadmap" />
-
-                <Dropdown
-                  ref={dropdownRefs.articles}
-                  isActive={active === 1}
-                  onToggle={() => setActive(active === 1 ? 0 : 1)}
+                <NavLink
+                  href="https://x.com/1stablememecoin/articles"
                   label="articles"
-                  items={[
-                    {
-                      href: "https://x.com/1stablememecoin/status/1855347853155332335",
-                      label: "article 1",
-                    },
-                    {
-                      href: "https://x.com/1stablememecoin/status/1855359544618291489",
-                      label: "article 2",
-                    },
-                  ]}
                 />
 
                 <Dropdown
@@ -203,19 +190,16 @@ const App: React.FC = () => {
             href="https://drive.google.com/file/d/1-lRFjFz8uyh7O1pJW4yYPLo8sL0z8W7I/view?usp=sharing"
             className="flex items-center text-lg bg-box dark:bg-[#262626] border border-gray-300 rounded-sm px-4 py-1"
           >
-            WhitePaper[
-            <Triangle
-              className="w-2 h-3 text-[#00A851] rotate-90"
-              fill="currentColor"
-            />
-            ]
+            WhitePaper[ read ]
           </a>
           <PriceDisplay price={price} priceColor={priceColor} />
 
           <div className="mb-6 hover:cursor-pointer" onClick={() => copyCA()}>
             <div className="flex items-center bg-box dark:bg-[#262626] dark:border-0 p-[10px_20px] rounded-sm border border-gray-300">
               <span className="text-base mr-10">copy contract</span>
-              <span className="font-bold text-xl">{CONTRACT_ADDRESS}</span>
+              <span className="font-bold font-b612 text-xl">
+                {CONTRACT_ADDRESS}
+              </span>
             </div>
           </div>
 
@@ -295,7 +279,7 @@ const App: React.FC = () => {
               fill="currentColor"
             />
           </a>
-          <div className=" text-center text-[1rem] my-4">
+          <div className=" text-center font-mono text-[1rem] my-4">
             <div>4UTEFQjNMvfQF5NT8mVfX</div>
             <div>dMAKoL7hS7i9U4mMVAzpump</div>
           </div>
