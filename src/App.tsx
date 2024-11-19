@@ -14,6 +14,7 @@ import { RiTwitterXFill } from "react-icons/ri";
 import { TbBrandTelegram } from "react-icons/tb";
 import useOutside from "./useOutside";
 import { FiMenu } from "react-icons/fi";
+import { GoArrowUpRight } from "react-icons/go";
 
 const BACKEND_URL = "https://new-onedollar-be.onrender.com/api";
 const CONTRACT_ADDRESS = "4UTEFQjNMvfQF5NT8mVfXdMAKoL7hS7i9U4mMVAzpump";
@@ -82,8 +83,8 @@ const App: React.FC = () => {
         priceData.priceChange === "neutral"
           ? "text-black"
           : priceData.priceChange === "rising"
-          ? "text-green-300"
-          : "text-red-500"
+          ? "text-[#00A851]"
+          : "text-[#FF1625]"
       );
       setPrice(`$${newPrice.toFixed(8)}`);
       setVolume(priceData.volume);
@@ -201,7 +202,7 @@ const App: React.FC = () => {
           <div className="flex items-center text-lg bg-box dark:bg-[#262626] border border-gray-300 rounded-sm px-4 py-1">
             WhitePaper[
             <Triangle
-              className="w-2 h-3 text-green-300 rotate-90"
+              className="w-2 h-3 text-[#00A851] rotate-90"
               fill="currentColor"
             />
             ]
@@ -250,9 +251,9 @@ const App: React.FC = () => {
           </div>
         </main>
       </div>
-      <div className="sm:hidden w-screen min-h-screen bg-[#1b1b1b] text-white font-b612">
+      <div className="sm:hidden w-screen min-h-screen bg-black text-white font-b612">
         <div className="px-6 py-4 flex flex-col justify-center items-center">
-          <div className="flex items-center justify-between bg-[#1b1b1b] py-2 px-6 border border-white rounded-full w-full z-[100]">
+          <div className="flex items-center justify-between bg-black py-2 px-6 border border-white rounded-full w-full z-[100]">
             <div className="text-[1.2rem]">$1</div>
             <div
               className="flex ml-[6px]"
@@ -299,20 +300,20 @@ const App: React.FC = () => {
             [tap to copy contract address]
           </div>
         </div>
-        <div className="bg-[#181818] pt-4 pb-10 w-full flex flex-col justify-center items-center">
+        <div className="bg-black pt-4 pb-10 w-full flex flex-col justify-center items-center">
           <div
             className={`flex justify-center items-center bg-opacity-50  rounded-sm text-white text-[1rem] p-1.5 ${
-              priceColor !== "text-black" && priceColor === "text-green-300"
-                ? "bg-[#06402b] border border-green-950 "
-                : "bg-red-800 border border-red-900"
+              priceColor !== "text-black" && priceColor === "text-[#00A851]"
+                ? "bg-[#06402b] border border-[#00A851] "
+                : "bg-[#FF1625] bg-opacity-10 border border-red-950"
             }`}
           >
             <span className="text-white">$1-price </span> [
             <Triangle
               className={`w-2 h-3 ${
-                priceColor !== "text-black" && priceColor === "text-green-300"
+                priceColor !== "text-black" && priceColor === "text-[#00A851]"
                   ? "text-[#188d63]"
-                  : "text-red-500 rotate-180"
+                  : "text-[#FF1625] rotate-180"
               }`}
               fill="currentColor"
             />
@@ -320,26 +321,26 @@ const App: React.FC = () => {
           </div>
           <div
             className={` py-4 text-[1.4rem] ${
-              priceColor !== "text-white" && priceColor === "text-green-300"
+              priceColor !== "text-white" && priceColor === "text-[#00A851]"
                 ? "text-[#188d63]"
-                : "text-red-500"
+                : "text-[#FF1625]"
             }`}
           >
             {calc(price)} / $1
           </div>
           <div
             className={`flex justify-center items-center bg-opacity-50 rounded-sm text-white text-[1rem] p-1.5 ${
-              priceColor !== "text-black" && priceColor === "text-green-300"
+              priceColor !== "text-black" && priceColor === "text-[#00A851]"
                 ? "bg-[#06402b] border border-green-950 "
-                : "bg-red-800 border border-red-900"
+                : "bg-[#FF1625] bg-opacity-10 border border-red-950"
             }`}
           >
             <span className="text-white">re-peg status </span> [
             <div
               className={` ${
-                priceColor !== "text-white" && priceColor === "text-green-300"
+                priceColor !== "text-white" && priceColor === "text-[#00A851]"
                   ? "text-[#188d63]"
-                  : "text-red-500"
+                  : "text-[#FF1625]"
               }`}
             >
               {((marketCap / 1000000000) * 100).toFixed(2)}%
@@ -347,23 +348,127 @@ const App: React.FC = () => {
             ]
             <Triangle
               className={`w-2 h-3 ${
-                priceColor !== "text-black" && priceColor === "text-green-300"
+                priceColor !== "text-black" && priceColor === "text-[#00A851]"
                   ? "text-[#188d63]"
-                  : "text-red-500 rotate-180"
+                  : "text-[#FF1625] rotate-180"
               }`}
               fill="currentColor"
             />
           </div>
         </div>
-        <div className="flex flex-col justify-center items-center bg-[#121212] py-5">
-          <div className=" truncate py-1 px-2 font-mono bg-[#303030] dark:border-0 rounded-sm text-[1.3rem] font-normal">
+        <div className="flex flex-col justify-center items-center bg-black py-5">
+          <div className=" truncate py-1 px-2 font-mono bg-[#FAD8CA] bg-opacity-10 dark:border-0 rounded-sm text-[1rem] font-light border-[0.5px] border-gray-400">
             market-cap [{`${Math.ceil(marketCap / 1000)}k`}]
           </div>
-          <div className=" truncate py-1 px-2 font-mono bg-[#303030] dark:border-0 rounded-sm text-[1.3rem] font-normal my-4">
+          <div className=" truncate py-1 px-2 font-mono bg-[#FAD8CA] bg-opacity-10 dark:border-0 rounded-sm text-[1rem] font-light my-4 border-[0.5px] border-gray-400">
             tdv [{`${(volume / 1000).toFixed(1)}k`}]
           </div>
-          <div className=" truncate py-1 px-2 font-mono bg-[#303030] dark:border-0 rounded-sm text-[1.3rem] font-normal">
+          <div className=" truncate py-1 px-2 font-mono bg-[#FAD8CA] bg-opacity-10 dark:border-0 rounded-sm text-[1rem] font-light border-[0.5px] border-gray-400">
             holders [{`${(holders / 1000).toFixed(1)}k`}]
+          </div>
+        </div>
+        <div
+          className={`w-screen h-screen bg-black z-10 fixed transition-all duration-500 ${
+            active1 === 2 ? "top-0 pt-20" : "-top-[100%]"
+          }`}
+          style={{ height: "calc(100vh - 150px)" }}
+        >
+          <div className="flex flex-col px-12">
+            <a
+              href="https://x.com/1stablememecoin"
+              className="w-full flex justify-between gap- items-end border-b-2 border-white"
+            >
+              <RiTwitterXFill className="text-[1.5rem]" />
+              <GoArrowUpRight className="text-[1.5rem]" />
+            </a>
+            <div className="flex-1 w-full justify-between items-center">
+              <a
+                href="https://t.me/onedollarportal"
+                className=" w-full py-2 border-b-2 border-white flex justify-between items-end"
+              >
+                <TbBrandTelegram className="text-[1.5rem]" />
+                <GoArrowUpRight className="text-[1.5rem]" />
+              </a>
+              <a
+                href="https://www.coingecko.com/en/coins/1-dollar-sol-coin"
+                className="w-full py-2 border-b-2 border-white flex justify-between items-end"
+              >
+                <div className=" flex justify-center items-center rounded-full">
+                  <img
+                    className="text-white w-6 rounded-full"
+                    src="./gecko.png"
+                    alt="gecko"
+                  />
+                  <span className="text-[0.8rem] ml-2 leading-5">
+                    Coingecko
+                  </span>
+                </div>
+                <GoArrowUpRight className="text-[1.5rem]" />
+              </a>
+              <a
+                href="https://dexscreener.com/solana/guhisjwhmjbd6azumkknb8yxqj9qytfon4skum2hnepu"
+                className="w-full py-2 border-b-2 border-white flex justify-between items-end"
+              >
+                <img className="w-6 h-8" src="./dex.svg" />
+                <GoArrowUpRight className="text-[1.5rem]" />
+              </a>
+              <a
+                href="https://www.dextools.io/app/en/solana/pair-explorer/GUhiSjWhMjbd6aZuMkKnb8Yxqj9qytFoN4sKUM2hNePU?t=1729109118417"
+                className="w-full py-2 border-b-2 border-white flex justify-between items-end"
+              >
+                <img className="w-6 h-8" src="./download.png" />
+                <GoArrowUpRight className="text-[1.5rem]" />
+              </a>
+              <a
+                href="#"
+                className="w-full py-2 border-b-2 border-white flex justify-between items-end"
+              >
+                <BsMedium className="text-[1.5rem]" />
+                <GoArrowUpRight className="text-[1.5rem]" />
+              </a>
+              <a
+                href="#"
+                className="w-full py-2 border-b-2 border-white flex justify-between items-end"
+              >
+                <div className="text-[1rem]">roadmap</div>
+                <GoArrowUpRight className="text-[1.5rem]" />
+              </a>
+              <a
+                href="#"
+                className="w-full py-2 border-b-2 border-white text-white flex justify-between items-end"
+              >
+                <div className="text-[1rem]">articles</div>
+                <GoArrowUpRight className="text-[1.5rem]" />
+              </a>
+            </div>
+          </div>
+        </div>
+        <div
+          className={`w-screen h-screen bg-black pb-[300px]  fixed transition-all duration-500 ${
+            active1 === 1 ? "top-20" : "-top-[100%]"
+          }`}
+          style={{ height: "calc(100vh - 250px)" }}
+        >
+          <div className="flex flex-col">
+            <div className="text-white text-[0.6rem] sm:[1.2rem] text-center px-6">
+              please verify the contracty address is verified on jupiter before
+              swpping.
+            </div>
+            <div className="flex-1 height-0 w-full py-4">
+              <div className="flex flex-col justify-center items-center px-12">
+                <a
+                  href="#"
+                  className="flex justify-between items-end w-full border-b-2 border-white py-1 "
+                >
+                  <img className="w-10" src="./jupiter.png" alt="jupiter" />
+                  <GoArrowUpRight className="text-[1.5rem]" />
+                </a>
+                <a href="#" className=" flex justify-between mt-4 w-full">
+                  <img src="./raydium.png" className="w-28" />
+                  <GoArrowUpRight className="text-[1.5rem]" />
+                </a>
+              </div>
+            </div>
           </div>
         </div>
         <div className="w-full bg-[#222222] dark:border-0 rounded-md py-6 px-10 border-0 sm:border border-gray-300">
@@ -397,87 +502,6 @@ const App: React.FC = () => {
               },
             ]}
           />
-        </div>
-        <div
-          className={`w-screen h-screen bg-[#1b1b1b] z-10 fixed transition-all duration-500 ${
-            active1 === 2 ? "top-20" : "-top-[100%]"
-          }`}
-        >
-          <div className="flex flex-col h-screen">
-            <a
-              href="https://x.com/1stablememecoin"
-              className="p-8 w-full flex justify-center"
-            >
-              <RiTwitterXFill className="text-[2rem]" />
-            </a>
-            <div className="flex-1 height-0 w-full bg-slate-700 bg-opacity-40 justify-between items-center">
-              <a
-                href="https://t.me/onedollarportal"
-                className="p-2 w-full  flex justify-center"
-              >
-                <TbBrandTelegram className="text-[3rem]" />
-              </a>
-              <a
-                href="https://www.coingecko.com/en/coins/1-dollar-sol-coin"
-                className="p-1 w-full flex justify-center"
-              >
-                <div className="w-9 flex justify-center items-center gap-1 rounded-full">
-                  <img
-                    className="text-white w-auto rounded-full"
-                    src="./gecko.png"
-                    alt="gecko"
-                  />
-                  <span>Coingecko</span>
-                </div>
-              </a>
-              <a
-                href="https://dexscreener.com/solana/guhisjwhmjbd6azumkknb8yxqj9qytfon4skum2hnepu"
-                className="p-1 w-full flex justify-center"
-              >
-                <img className="w-10 h-12" src="./dex.png" />
-              </a>
-              <a
-                href="https://www.dextools.io/app/en/solana/pair-explorer/GUhiSjWhMjbd6aZuMkKnb8Yxqj9qytFoN4sKUM2hNePU?t=1729109118417"
-                className="p-1 w-full flex justify-center"
-              >
-                <img className="w-10 h-12" src="./download.png" />
-              </a>
-              <a href="#" className="p-1 w-full flex justify-center">
-                <BsMedium className="text-[3rem]" />
-              </a>
-              <a href="#" className="p-1 w-full flex justify-center">
-                <div className="text-[1.4rem]">roadmap</div>
-              </a>
-              <a href="#" className="p-1 w-full text-white text-center">
-                <div className="text-[2rem]">articles</div>
-                <div className="text-[0.4rem]">
-                  go to our X profile and check the article tab section
-                </div>
-              </a>
-            </div>
-          </div>
-        </div>
-        <div
-          className={`w-screen h-screen bg-black z-10 fixed transition-all duration-500 ${
-            active1 === 1 ? "top-20" : "-top-[100%]"
-          }`}
-        >
-          <div className="flex flex-col h-screen">
-            <div className="text-white text-[0.6rem] sm:[1.2rem] text-center px-3">
-              please verify the contracty address is verified on jupiter before
-              swpping.
-            </div>
-            <div className="flex-1 height-0 w-full py-4 bg-slate-700 bg-opacity-40">
-              <div className="flex flex-col justify-center items-center">
-                <a href="#" className="w-12 flex justify-center ">
-                  <img src="./jupiter.png" />
-                </a>
-                <a href="#" className="w-1/3 flex justify-center mt-4">
-                  <img src="./raydium.png" className="" />
-                </a>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </>
