@@ -438,7 +438,7 @@ const App: React.FC = () => {
               </a>
               <a
                 href="#"
-                className="w-full py-2 border-b-2 border-white text-white flex justify-between items-end"
+                className="w-full py-2 text-white flex justify-between items-end"
               >
                 <div className="text-[1rem]">articles</div>
                 <GoArrowUpRight className="text-[1.5rem]" />
