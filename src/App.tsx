@@ -300,7 +300,7 @@ const App: React.FC = () => {
             [tap to copy contract address]
           </div>
         </div>
-        <div className="bg-black pt-4 pb-10 w-full flex flex-col justify-center items-center">
+        <div className="bg-black py-4 w-full flex flex-col justify-center items-center">
           <div
             className={`flex justify-center items-center bg-opacity-50  rounded-sm text-white text-[1rem] p-1.5 ${
               priceColor !== "text-black" && priceColor === "text-[#00A851]"
@@ -379,6 +379,7 @@ const App: React.FC = () => {
               className="w-full flex justify-between gap- items-end border-b-2 border-white"
             >
               <RiTwitterXFill className="text-[1.5rem]" />
+
               <GoArrowUpRight className="text-[1.5rem]" />
             </a>
             <div className="flex-1 w-full justify-between items-center">
@@ -386,7 +387,10 @@ const App: React.FC = () => {
                 href="https://t.me/onedollarportal"
                 className=" w-full py-2 border-b-2 border-white flex justify-between items-end"
               >
-                <TbBrandTelegram className="text-[1.5rem]" />
+                <div className="flex justify-start gap-2">
+                  <TbBrandTelegram className="text-[1.5rem]" />
+                  <span>telegram</span>
+                </div>
                 <GoArrowUpRight className="text-[1.5rem]" />
               </a>
               <a
@@ -409,21 +413,30 @@ const App: React.FC = () => {
                 href="https://dexscreener.com/solana/guhisjwhmjbd6azumkknb8yxqj9qytfon4skum2hnepu"
                 className="w-full py-2 border-b-2 border-white flex justify-between items-end"
               >
-                <img className="w-6 h-8" src="./dex.svg" />
+                <div className="flex justify-start items-center gap-2">
+                  <img className="w-6 h-8" src="./dex.svg" />
+                  <span>dexscreener</span>
+                </div>
                 <GoArrowUpRight className="text-[1.5rem]" />
               </a>
               <a
                 href="https://www.dextools.io/app/en/solana/pair-explorer/GUhiSjWhMjbd6aZuMkKnb8Yxqj9qytFoN4sKUM2hNePU?t=1729109118417"
                 className="w-full py-2 border-b-2 border-white flex justify-between items-end"
               >
-                <img className="w-6 h-8" src="./download.png" />
+                <div className="flex justify-start items-center gap-2">
+                  <img className="w-6" src="./dextools-social-preview.png" />
+                  <span>dextools</span>
+                </div>
                 <GoArrowUpRight className="text-[1.5rem]" />
               </a>
               <a
                 href="#"
                 className="w-full py-2 border-b-2 border-white flex justify-between items-end"
               >
-                <BsMedium className="text-[1.5rem]" />
+                <div className="flex justify-start items-center gap-2">
+                  <BsMedium className="text-[1.5rem]" />
+                  <span>blog [medium]</span>
+                </div>
                 <GoArrowUpRight className="text-[1.5rem]" />
               </a>
               <a
@@ -458,13 +471,13 @@ const App: React.FC = () => {
               <div className="flex flex-col justify-center items-center px-12">
                 <a
                   href="#"
-                  className="flex justify-between items-end w-full border-b-2 border-white py-1 "
+                  className="flex justify-between items-end w-full border-b-2 border-white py-4 "
                 >
                   <img className="w-10" src="./jupiter.png" alt="jupiter" />
                   <GoArrowUpRight className="text-[1.5rem]" />
                 </a>
                 <a href="#" className=" flex justify-between mt-4 w-full">
-                  <img src="./raydium.png" className="w-28" />
+                  <img src="./raydium.png" className="w-32 pl-1" />
                   <GoArrowUpRight className="text-[1.5rem]" />
                 </a>
               </div>
